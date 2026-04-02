@@ -10,7 +10,8 @@ tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
 model = AutoModelForSequenceClassification.from_pretrained(MODEL_PATH)
 
 # Load label mapping saved during training
-label_map_path = os.path.join(MODEL_PATH, "label_map.json")
+label_map_path = "app/intent/label_map.json"
+model.eval()
 
 with open(label_map_path, "r") as f:
     label_map = json.load(f)
@@ -32,5 +33,4 @@ def predict_intent(text):
     intent = id_to_label[predicted_class.item()]
 
     return intent, confidence.item()
-
 
