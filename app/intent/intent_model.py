@@ -4,7 +4,7 @@ import os
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from torch.optim import AdamW
 
-MODEL_PATH = "app/intent/model"
+MODEL_PATH = "distilbert-base-uncased"
 
 tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
 model = AutoModelForSequenceClassification.from_pretrained(MODEL_PATH)
