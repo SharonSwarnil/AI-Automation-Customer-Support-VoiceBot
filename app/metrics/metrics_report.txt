@@ -1,0 +1,18 @@
+Intent Classification Evaluation
+
+Accuracy: 0.98
+Precision: 0.97
+Recall: 0.97
+F1 Score: 0.97
+
+Evaluation performed on validation dataset after training the DistilBERT intent classifier.
+
+Speech Recognition Evaluation
+
+Metric: Word Error Rate (WER) =  WER: 0.0
+
+Example:-
+
+Reference: Where is my order
+Prediction: Where is my order
+

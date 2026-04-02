@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Voicebot</title>
+
+<style>
+body{
+font-family: Arial;
+text-align:center;
+margin-top:80px;
+}
+
+button{
+padding:15px 25px;
+font-size:18px;
+margin:10px;
+cursor:pointer;
+}
+
+#status{
+margin-top:20px;
+font-size:18px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>AI Voicebot Customer Support</h1>
+
+<p>Click the button and speak your question</p>
+
+<button onclick="startRecording()"> Start Recording</button>
+
+<button onclick="stopRecording()"> Stop</button>
+
+<p id="status">Waiting for input...</p>
+
+<audio id="responseAudio" controls></audio>
+
+<script>
+
+let mediaRecorder;
+let audioChunks=[];
+
+async function startRecording(){
+
+const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+
+mediaRecorder=new MediaRecorder(stream);
+
+mediaRecorder.start();
+
+document.getElementById("status").innerText="Recording... Speak now";
+
+audioChunks=[];
+
+mediaRecorder.ondataavailable=e=>{
+audioChunks.push(e.data);
+}
+
+}
+
+function stopRecording(){
+
+mediaRecorder.stop();
+
+document.getElementById("status").innerText="Processing...";
+
+mediaRecorder.onstop=async()=>{
+
+const blob=new Blob(audioChunks,{type:"audio/wav"});
+
+const formData=new FormData();
+
+formData.append("audio",blob,"voice.wav");
+
+const response=await fetch("/voicebot",{
+method:"POST",
+body:formData
+});
+
+const result=await response.json();
+
+document.getElementById("status").innerText=
+"Intent: "+result.intent+
+" | Confidence: "+result.confidence;
+
+const audio=document.getElementById("responseAudio");
+
+audio.src=result.audio_file;
+
+audio.play();
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

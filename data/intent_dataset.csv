@@ -1,0 +1,241 @@
+text,intent
+where is my order,order_status
+track my order,order_status
+track my shipment,order_status
+check my delivery status,order_status
+has my order been shipped,order_status
+order tracking please,order_status
+my order status,order_status
+where is my package,order_status
+can you track my order,order_status
+i want to know my order status,order_status
+my package location,order_status
+tell me where my order is,order_status
+order tracking info,order_status
+did my order ship,order_status
+shipment tracking,order_status
+uh where is my order,order_status
+hey track my order,order_status
+my order where is it,order_status
+can you check my order,order_status
+i didn't get my order yet,order_status
+
+cancel my order,cancel_order
+i want to cancel my order,cancel_order
+please cancel my order,cancel_order
+cancel my purchase,cancel_order
+stop my order,cancel_order
+cancel this order,cancel_order
+i no longer want this,cancel_order
+cancel shipment,cancel_order
+cancel order immediately,cancel_order
+remove my order,cancel_order
+cancel it please,cancel_order
+i changed my mind cancel order,cancel_order
+cancel my item,cancel_order
+i want to stop this order,cancel_order
+cancel order now,cancel_order
+uh cancel my order,cancel_order
+hey cancel it,cancel_order
+please stop my delivery,cancel_order
+cancel my recent order,cancel_order
+i dont want this anymore,cancel_order
+
+i want a refund,refund_request
+refund my money,refund_request
+i need refund,refund_request
+please refund my payment,refund_request
+how to get refund,refund_request
+return my order,refund_request
+i want to return item,refund_request
+refund request,refund_request
+give me my money back,refund_request
+process refund please,refund_request
+refund this order,refund_request
+i need my money back,refund_request
+how can i return product,refund_request
+return and refund,refund_request
+refund please,refund_request
+uh i want refund,refund_request
+hey refund my order,refund_request
+please return my purchase,refund_request
+refund my transaction,refund_request
+i need refund asap,refund_request
+
+payment failed,payment_issue
+my payment is not working,payment_issue
+transaction declined,payment_issue
+unable to pay,payment_issue
+payment error,payment_issue
+why payment failed,payment_issue
+my card declined,payment_issue
+payment issue,payment_issue
+i cant complete payment,payment_issue
+payment not going through,payment_issue
+card payment failed,payment_issue
+problem with payment,payment_issue
+why my payment declined,payment_issue
+payment unsuccessful,payment_issue
+transaction failed,payment_issue
+uh payment failed,payment_issue
+hey my card not working,payment_issue
+payment error occurred,payment_issue
+i cant pay,payment_issue
+issue with transaction,payment_issue
+
+change my address,address_change
+update delivery address,address_change
+modify shipping address,address_change
+wrong address entered,address_change
+edit my address,address_change
+update my address,address_change
+change shipping details,address_change
+i entered wrong address,address_change
+change delivery location,address_change
+update address please,address_change
+modify address,address_change
+correct my address,address_change
+fix delivery address,address_change
+change my shipping address,address_change
+update delivery location,address_change
+uh change address,address_change
+hey update my address,address_change
+wrong shipping address,address_change
+please modify address,address_change
+address change needed,address_change
+
+product details,product_info
+tell me about product,product_info
+what are features,product_info
+product info please,product_info
+describe product,product_info
+details of this item,product_info
+what does this product do,product_info
+give product specs,product_info
+explain product features,product_info
+product information needed,product_info
+i need product details,product_info
+about this item,product_info
+tell me specifications,product_info
+product description,product_info
+info about product,product_info
+uh tell me product details,product_info
+hey what is this product,product_info
+product features please,product_info
+describe this item,product_info
+explain this product,product_info
+
+delivery is late,delivery_delay
+my order is delayed,delivery_delay
+why delivery late,delivery_delay
+package delayed,delivery_delay
+shipment is late,delivery_delay
+delivery taking too long,delivery_delay
+order delay issue,delivery_delay
+why my order not arrived,delivery_delay
+late delivery problem,delivery_delay
+delay in shipment,delivery_delay
+my package not arrived,delivery_delay
+delivery delay complaint,delivery_delay
+why my delivery slow,delivery_delay
+order not delivered yet,delivery_delay
+shipment delay,delivery_delay
+uh my order late,delivery_delay
+hey delivery is late,delivery_delay
+package still not here,delivery_delay
+order delayed,delivery_delay
+delivery problem late,delivery_delay
+
+subscription issue,subscription_issue
+my subscription not working,subscription_issue
+cancel my subscription,subscription_issue
+subscription problem,subscription_issue
+subscription payment failed,subscription_issue
+cannot access subscription,subscription_issue
+help with subscription,subscription_issue
+subscription error,subscription_issue
+subscription not active,subscription_issue
+issue with subscription,subscription_issue
+subscription renewal problem,subscription_issue
+cancel subscription please,subscription_issue
+subscription failed,subscription_issue
+subscription help needed,subscription_issue
+subscription access issue,subscription_issue
+uh subscription issue,subscription_issue
+hey my subscription not working,subscription_issue
+subscription error occurred,subscription_issue
+problem in subscription,subscription_issue
+subscription not valid,subscription_issue
+
+account help,account_help
+i cannot login,account_help
+forgot my password,account_help
+reset my password,account_help
+account issue,account_help
+login problem,account_help
+cant access account,account_help
+help with login,account_help
+account access problem,account_help
+password reset,account_help
+unable to login,account_help
+account not working,account_help
+login error,account_help
+forgot password help,account_help
+account recovery,account_help
+uh i cant login,account_help
+hey reset password,account_help
+account problem,account_help
+login issue,account_help
+access my account problem,account_help
+
+i need to contact support,speak_agent
+connect me to support team,speak_agent
+i want to talk to support,speak_agent
+i need help from support team,speak_agent
+please connect me to customer support,speak_agent
+i want to speak with support agent,speak_agent
+contact support team,speak_agent
+i have an issue connect me to support,speak_agent
+i need assistance from support,speak_agent
+talk to support team,speak_agent
+connect me to agent,speak_agent
+i want human support,speak_agent
+talk to agent,speak_agent
+connect to support,speak_agent
+speak with representative,speak_agent
+transfer to agent,speak_agent
+i need human help,speak_agent
+customer support please,speak_agent
+talk to human,speak_agent
+connect to customer service,speak_agent
+agent please,speak_agent
+i want to talk to someone,speak_agent
+human support needed,speak_agent
+transfer call,speak_agent
+connect to human,speak_agent
+uh connect me to agent,speak_agent
+hey i need human help,speak_agent
+please connect support,speak_agent
+talk to support agent,speak_agent
+customer agent needed,speak_agent
+
+hello,fallback
+hi,fallback
+hey,fallback
+okay,fallback
+thanks,fallback
+thank you,fallback
+hmm,fallback
+what,fallback
+i dont know,fallback
+can you repeat,fallback
+hello there,fallback
+hey there,fallback
+ok,fallback
+fine,fallback
+alright,fallback
+uh hello,fallback
+hmm okay,fallback
+what is this,fallback
+repeat that,fallback
+i did'nt understand,fallback
