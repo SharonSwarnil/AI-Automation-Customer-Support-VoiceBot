@@ -1,18 +1,24 @@
-__pycache__/
-*.pyc
-*.pyo
-
+# Virtual environment
 venv/
 .env
 
+# Python cache
+__pycache__/
+*.pyc
+
+# Model files
+app/intent/model/
+*.safetensors
+*.bin
+
+# Large files
+*.mp4
+*.wav
+
+# Audio/temp
+static/
+temp_input.wav
+
+# OS files
 .DS_Store
 
-*.log
-
-static/*.mp3
-static/*.wav
-
-*.bin
-*.pt
-
-.cache/
