@@ -8,3 +8,4 @@ temp_input.wav
 app/intent/model/
 *.safetensors
 *.bin
+*.mp4
