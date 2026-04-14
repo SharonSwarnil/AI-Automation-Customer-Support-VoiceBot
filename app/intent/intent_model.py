@@ -1,46 +1,53 @@
+import os
 import torch
 import json
+import requests
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
-from huggingface_hub import hf_hub_download
 
-# Replace with your actual HF repo
-MODEL_PATH = "SharonSwarnil/intent-classifier"
+# Detect environment
+USE_API = os.getenv("USE_HF_API", "false").lower() == "true"
 
-# Load tokenizer & model from HuggingFace
-tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
-model = AutoModelForSequenceClassification.from_pretrained(MODEL_PATH)
-model.eval()
+# HuggingFace config
+HF_API_URL = "https://api-inference.huggingface.co/models/SharonSwarnil/intent-classifier"
+HF_TOKEN = os.getenv("HF_TOKEN")
 
-# Download label_map.json from HuggingFace repo
-label_map_path = hf_hub_download(
-    repo_id=MODEL_PATH,
-    filename="label_map.json"
-)
+if not USE_API:
+    # LOCAL MODEL (Option B)
+    MODEL_PATH = "app/intent/model"
 
-with open(label_map_path, "r") as f:
-    label_map = json.load(f)
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
+    model = AutoModelForSequenceClassification.from_pretrained(MODEL_PATH)
+    model.eval()
 
-# Convert keys from string → int
-id_to_label = {int(k): v for k, v in label_map.items()}
+    with open(os.path.join(MODEL_PATH, "label_map.json"), "r") as f:
+        label_map = json.load(f)
+
+    id_to_label = {int(k): v for k, v in label_map.items()}
 
 
 def predict_intent(text):
 
-    inputs = tokenizer(
-        text,
-        return_tensors="pt",
-        truncation=True,
-        padding=True
-    )
+    # OPTION A → API MODE
+    if USE_API:
+        headers = {"Authorization": f"Bearer {HF_TOKEN}"}
+        payload = {"inputs": text}
 
-    # Some models include this, some don’t
-    inputs.pop("token_type_ids", None)
+        response = requests.post(HF_API_URL, headers=headers, json=payload)
+        result = response.json()
 
-    outputs = model(**inputs)
+        top = max(result[0], key=lambda x: x["score"])
+        return top["label"], top["score"]
 
-    probs = torch.nn.functional.softmax(outputs.logits, dim=1)
-    confidence, predicted_class = torch.max(probs, dim=1)
-    intent = id_to_label[predicted_class.item()]
+    # OPTION B → LOCAL MODE
+    else:
+        inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
+        inputs.pop("token_type_ids", None)
 
-    return intent, confidence.item()
+        outputs = model(**inputs)
+        probs = torch.nn.functional.softmax(outputs.logits, dim=1)
 
+        confidence, predicted_class = torch.max(probs, dim=1)
+        intent = id_to_label[predicted_class.item()]
+
+        return intent, confidence.item()
+    
