@@ -8,26 +8,19 @@ CONFIDENCE_THRESHOLD = 0.70
 def run_pipeline(audio_path):
 
     text = transcribe_audio(audio_path)
+    print("TEXT:", text)
+
     intent, confidence = predict_intent(text)
+    print("INTENT:", intent)
+    print("CONFIDENCE:", confidence)
+
     text_lower = text.lower()
 
     if confidence < CONFIDENCE_THRESHOLD:
-
-        if "support" in text_lower or "agent" in text_lower:
-            intent = "speak_agent"
-
-        elif "refund" in text_lower or "money back" in text_lower:
-            intent = "refund_request"
-
-        elif "cancel" in text_lower:
-            intent = "cancel_order"
-
-        else:
-            intent = "fallback"
+        intent = "fallback"
 
     response_text = generate_response(intent)
     audio_url = synthesize_speech(response_text)
 
     return text, intent, confidence, response_text, audio_url
-
-
+    

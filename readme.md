@@ -1,197 +1,83 @@
-# AI Voicebot for Customer Support Automation
+# AI Voicebot Customer Support System
 
-## Overview
-
-This project implements an AI-powered voicebot that can handle basic customer support queries through speech interaction.
-
-The system accepts voice input from a microphone or an uploaded audio file, converts speech into text, detects the user's intent, generates a response, and returns the reply as synthesized speech.
-
-The goal of this project is to demonstrate an end-to-end machine learning pipeline combining speech recognition, natural language understanding, and speech synthesis.
+This project is an end-to-end AI-based voicebot that can handle basic customer support queries using voice input. It converts speech to text, identifies user intent, and responds back with audio output.
 
 ---
 
-## System Architecture
+## Features
 
-The system follows a simple modular pipeline:
-
-User Voice  
-↓  
-Speech Recognition (Whisper ASR)  
-↓  
-Intent Classification (DistilBERT)  
-↓  
-Response Generation  
-↓  
-Text-to-Speech (gTTS)  
-↓  
-Audio Response
-
-Architecture diagram:  
-`architecture_diagram.png`
+- Voice Input through browser
+- Intent Detection using NLP model (DistilBERT)
+- Automated response generation
+- Text-to-Speech reply
+- FastAPI backend
+- Modular pipeline (ASR → NLP → TTS)
 
 ---
 
-## Technologies Used
+## Tech Stack
 
-- Speech Recognition: **OpenAI Whisper**
-- Intent Classification: **DistilBERT (HuggingFace Transformers)**
-- Text-to-Speech: **gTTS**
-- Backend API: **FastAPI**
-- Frontend: **HTML + JavaScript**
-- Language: **Python**
+- Python, FastAPI  
+- HuggingFace Transformers  
+- Whisper (Speech-to-Text)  
+- gTTS (Text-to-Speech)  
+- HTML, JavaScript (Frontend)  
 
 ---
 
-## Supported Customer Support Intents
+## Architecture
 
-The intent classifier supports the following intents:
+1. Audio Input → Whisper ASR  
+2. Text → Intent Classification Model  
+3. Intent → Response Generator  
+4. Response → gTTS Audio Output  
 
-- order_status
-- cancel_order
-- refund_request
-- payment_issue
-- address_change
-- product_info
-- delivery_delay
-- subscription_issue
-- account_help
-- speak_agent
+---
+
+## Live Demo
+
+*(Will be added after deployment on Render)*
 
 ---
 
 ## Dataset
 
-The intent classifier was trained on a custom dataset of customer support queries.
+Custom dataset created for intent classification including:
 
-Example samples:
-
-Where is my order → order_status  
-Cancel my order → cancel_order  
-I want a refund → refund_request  
-
-Dataset file: data/intent_dataset.csv
-
----
-
-## Model Choices
-
-**Whisper ASR**
-
-Whisper is used for speech recognition because it performs well with short conversational speech and can handle moderate background noise.
-
-**DistilBERT**
-
-DistilBERT was chosen for intent classification because it provides strong language understanding while remaining lightweight enough for fast inference.
-
-**gTTS**
-
-gTTS is used to convert the generated text response into natural sounding speech.
+- Order Status  
+- Refund Request  
+- Cancel Order  
+- Customer Support  
+- Payment Issues  
+- etc.  
 
 ---
 
-## Evaluation Metrics
+## Key Highlights
 
-The intent classification model was evaluated using common NLP metrics.
-
-Accuracy: 0.98  
-Precision: 0.97  
-Recall: 0.97  
-F1 Score: 0.97  
-
-Speech recognition quality can also be evaluated using **Word Error Rate (WER)**, which measures how closely the transcription matches the spoken input.
+- Built a complete pipeline from voice input to audio response  
+- Implemented fallback logic for low-confidence predictions  
+- Designed modular code structure for easy extension  
+- Focused on real-world customer support use cases  
 
 ---
 
-## Project Structure
+## Ongoing Improvements
 
-voicebot-customer-support
+Currently, the project is working on a **local model setup** for accurate predictions.
 
-app/
-asr/
-intent/
-pipeline/
-response/
-tts/
-main.py
+I am actively working on:
 
-data/
-intent_dataset.csv
+- Integrating HuggingFace Inference API (to avoid loading heavy models locally)
+- Deploying the project on Render for public access
+- Optimizing API-based inference for better performance and scalability
+- Improving intent accuracy and handling edge cases
 
-samples/
-order_status.wav
-cancel_order.wav
-refund_request.wav
-
-static/
-index.html
-
-architecture_diagram.png
-requirements.txt
-README.md
+Due to memory and deployment constraints, API integration is still under refinement, but the working pipeline is fully functional in the local environment.
 
 ---
 
-## Installation
+## Author
 
-Install dependencies:
-
----
-
-## Running the Application
-
-Start the FastAPI server: uvicorn app.main:app --reload
-
-
-Open the web interface: http://127.0.0.1:8000
-
----
-
-## Voice Interaction
-
-Click **Start Recording** and speak a query such as:
-"Where is my order? "
-
-The system will:
-1. convert speech to text
-2. detect the user intent
-3. generate a response
-4. return audio speech output
-
----
-
-## API Testing
-
-The backend API can be tested using FastAPI documentation.
-
-Open: http://127.0.0.1:8000/docs
-
-Upload an audio file from the `samples` folder to test the `/voicebot` endpoint.
-
----
-
-## Sample Audio Files
-
-Example test audio files are provided:
-
-samples/order_status.wav
-samples/cancel_order.wav
-samples/refund_request.wav
-
----
-
-## Demo
-
-The repository includes a short demo video showing:
-
-- project overview
-- system architecture
-- frontend voice interaction
-- backend API testing
-
----
-
-## Conclusion
-
-This project demonstrates a complete voice-based customer support assistant using speech recognition, transformer-based intent classification, and speech synthesis.
-
-The system is modular, easy to run locally, and can be extended for more advanced conversational support systems.
+**Sharon Swarnil Choudhary**  
+B.Tech (Artificial Intelligence & Data Science)

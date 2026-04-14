@@ -1,25 +1,10 @@
-# Virtual environment
 venv/
-.env
-
-# Python cache
 __pycache__/
 *.pyc
+*.wav
+temp_input.wav
 
-# Model files
+# model files (too large)
 app/intent/model/
 *.safetensors
 *.bin
-
-# Large files
-*.mp4
-*.wav
-
-# Audio/temp
-static/
-temp_input.wav
-*.wav
-
-# OS files
-.DS_Store
-

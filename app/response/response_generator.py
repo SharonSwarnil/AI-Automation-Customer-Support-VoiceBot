@@ -27,3 +27,4 @@ responses = {
 def generate_response(intent):
 
     return responses.get(intent, responses["fallback"])
+
