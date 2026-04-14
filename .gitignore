@@ -18,6 +18,7 @@ app/intent/model/
 # Audio/temp
 static/
 temp_input.wav
+*.wav
 
 # OS files
 .DS_Store
